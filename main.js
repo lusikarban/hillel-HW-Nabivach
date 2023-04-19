@@ -6,7 +6,7 @@
 assignObjects({ x: 10, y: 20 }, { z: 30 }) -> { x:10, y:20, z: 30 }
 assignObjects({ x: 10 }, { x: 20, y: 30 }) - > { x:20, y: 30 } */
 
-/*
+
 function assignObjects(obj1, obj2) {
   const newObj = {};
   for (let key in obj1) {
@@ -21,7 +21,7 @@ function assignObjects(obj1, obj2) {
 let object = assignObjects({ x: 10, y: 20 }, { z: 30, x: 25 });
 console.log(object);
 
-/*
+
 //Адаптувати функцію assignObjects() під невизначену кількість об'єктів. assignObjects(obj1, obj2, ....., objn);
 
 function assignObjects(...objects) {
@@ -35,11 +35,11 @@ function assignObjects(...objects) {
 }
 
 /*Додати третій аргумент flag, який є boolean. Якщо flag === true, тоді за наявності властивості в обох 
-об'єктів у результат піде значення першого об'єкта, false - з другого
+об'єктів у результат піде значення першого об'єкта, false - з другого*/
 
 Наприклад: 
 assignObjects({a: 12, b: 3}, { a: 13, h: 0 }, true); => { a: 12, b: 3, h: 0 }*/
-/*
+
 function assignObjects(obj1, obj2, flag ) {
   const newObj = obj1;
 
