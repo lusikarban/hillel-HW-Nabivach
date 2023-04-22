@@ -1,0 +1,58 @@
+/*Задача - 1 
+Задано об'єкт з будь-якою кількістю властивостей. 
+Однією з властивостей є функція renderObject(), яка описана у window.
+
+При виклику методу obj.renderObject() -> виводить у document весь вміст об'єкта,
+ крім самого методу renderObject*/
+
+const obj = {
+  key1: 'product 1',
+  key2: 'product 2',
+  key3: () => { }
+};
+
+obj.renderObject = function () {
+  for (const key in this) {
+    if (typeof this[key] !== 'function') {
+      document.write(key + ': ' + this[key] + '<br>');
+    }
+  }
+}
+
+obj.renderObject();
+
+/* Задача 2
+В об'єкті data існує метод addRecord, який аргументами отримує будь-який набір об'єктів.
+Метод addRecord додає всі властивості переданих об'єктів data.
+ data = {
+     addRecord: function(){},
+     p: 600,
+     str: 'hello',
+     y: -50
+ }*/
+
+const data = {
+  addRecord: function () { },
+  p: 600,
+  str: 'hello',
+  y: -50
+};
+
+data.addRecord = function (...args) {
+  for (let i = 0; i < args.length; i++) {
+    const obj = args[i];
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        this[key] = obj[key];
+      }
+    }
+  }
+};
+
+data.addRecord({ x: 10 }, { y: 20 }, { z: 30, x: 50 });
+
+console.log(data.x );// 50
+console.log(data.y);// 20
+console.log(data.z); // 30
+console.log(data.p); // 600
+console.log(data.str); // 'hello'
