@@ -1,0 +1,33 @@
+let obj = {
+  result: '',
+  targetProperty: '',
+  copy(buffer) {
+    this[buffer] = this.result;
+    return this;
+  },
+  clear() {
+    this[this.targetProperty] = 0;
+    return this;
+  },
+  doFunction(func, x, y) {
+    this[this.targetProperty] = func(x, y);
+    return this;
+  },
+  target(property) {
+    this.targetProperty = property;
+    return this;
+  }
+};
+
+
+function sum(x, y) {
+  return x + y;
+}
+
+function mul(x, y) {
+  return x * y;
+}
+
+
+obj .doFunction(sum, 2, 4) .copy('nom_name') .target('summary') .doFunction(sum, 2, 4)
+console.log(obj);
