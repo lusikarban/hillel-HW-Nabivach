@@ -1,6 +1,7 @@
 let obj = {
   result: '',
-  targetProperty: '',
+  targetProperty: 'result',
+
   copy(buffer) {
     this[buffer] = this.result;
     return this;
@@ -19,7 +20,6 @@ let obj = {
   }
 };
 
-
 function sum(x, y) {
   return x + y;
 }
@@ -28,6 +28,7 @@ function mul(x, y) {
   return x * y;
 }
 
+obj.doFunction(sum, 2, 4).copy('nom_name').target('summary').doFunction(sum, 8, 4);
 
-obj .doFunction(sum, 2, 4) .copy('nom_name') .target('summary') .doFunction(sum, 2, 4)
-console.log(obj);
+console.log(obj.summary, 'summary'); 
+console.log(obj.result,'result');
