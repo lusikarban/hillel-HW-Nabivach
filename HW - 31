@@ -1,0 +1,56 @@
+async function getAllProducts() {
+  const response = await fetchAllProducts();
+  const prouducts = response.products;
+
+  console.log(prouducts, "prouducts");
+
+  const productsTamplate = `
+   <article class="products">
+        ${prouducts.map((product) => `
+            <section class="product-item">
+            ${getProductImage(product)}
+                <div class="content-wrapper">
+                ${getProductTitle(product)}
+                    <div class="price">
+                    ${product.price}, 
+                    price with discount ${priceWithDiscount(product.price, product.discountPercentage)}
+                   </div>
+                    <div class="description">${product.description}</div>
+                    <div class="actions">
+                        <button id="cart"class="button green-solid cart">
+                            Add to Cart
+                        </button>
+                        <button class="button more">More Details</button>
+                    </div>
+                </div>
+            </section>  
+        `).join("")}
+   </article>
+  `;
+
+  document.getElementById("app").innerHTML = productsTamplate;
+}
+
+
+
+const priceWithDiscount = (price, discountPercentage) => {
+  const discount = price * (discountPercentage / 100);
+  const discountedPrice = price - discount;
+  return discountedPrice.toFixed(2);
+};
+
+function getProductImage(product) {
+  return `
+    <div class="image-wrapper">
+      <img src="${product.thumbnail}" alt="" class="image" />
+    </div>
+  `;
+}
+
+function getProductTitle(product) {
+  return `<div class="title">
+            <h4>${product.title}</h4>
+          </div>`;
+}
+
+getAllProducts();
