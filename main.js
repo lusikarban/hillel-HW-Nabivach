@@ -13,4 +13,4 @@ function* getPartsOfWord(string) {
     return newString;
 };
 
-///commit
+///commit /// new commit ///
