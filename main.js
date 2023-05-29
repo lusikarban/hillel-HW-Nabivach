@@ -12,3 +12,5 @@ function* getPartsOfWord(string) {
     };
     return newString;
 };
+
+///commit
