@@ -14,3 +14,5 @@ function* getPartsOfWord(string) {
 };
 
 ///commit /// new commit ///
+
+////new commit /// git
