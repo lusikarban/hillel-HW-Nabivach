@@ -30,24 +30,20 @@ class House {
     }
 }
 
-// Create instances of the Person class
+
 const person1 = new Person("Lusi", "woman");
 const person2 = new Person("Lili", "woman");
 const person3 = new Person("Tim", "man");
 
-// Create instances of the Apartment class
 const apartment1 = new Apartment();
 const apartment2 = new Apartment();
 
-// Add instances of the Person class to instances of the Apartment class
 apartment1.addResident(person1);
 apartment1.addResident(person2);
 apartment2.addResident(person3);
 
-// Create an instance of the House class
 const house = new House(2);
 
-// Add instances of the Apartment class to the House class
 house.addApartment(apartment1);
 house.addApartment(apartment2);
 house.addApartment(apartment2);
