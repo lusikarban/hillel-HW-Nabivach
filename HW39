@@ -1,0 +1,50 @@
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    showInfo() {
+        console.log("Ім'я " + this.name, "Вік " + this.age)
+    }
+}
+
+class Car {
+    constructor(brand, model, year, carLicensePlate) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.carLicensePlate = carLicensePlate;
+        this.owner = null;
+
+    }
+
+    assignOwner(person) {
+        if (person.age > 18) {
+            this.owner = person;
+        } else {
+            console.log("Вік меньше 18");
+        }
+    }
+
+    informationСar() {
+        console.log(this.brand, this.model, this.year, this.carLicensePlate);
+        if (this.owner) {
+            console.log("власник авто ");
+            this.owner.showInfo();
+        } else {
+            console.log("у авто немає власника");
+        }
+    }
+}
+const person1 = new Person("Lusi", "35");
+const person2 = new Person("Lili", "16");
+
+const car1 = new Car('subaru', 'outback', 2016, 4010);
+const car2 = new Car('mazda', 'cx-5', 2018, 3040);
+
+car1.assignOwner(person1);
+car2.assignOwner(person2);
+
+car1.informationСar();
+car2.informationСar();
