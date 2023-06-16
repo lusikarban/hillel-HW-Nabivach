@@ -1,0 +1,46 @@
+
+function SuperMath() {
+    this.check = function (obj) {
+        if (isValidOperation(obj.znak)) {
+            var result;
+            switch (obj.znak) {
+                case '+':
+                    result = obj.X + obj.Y;
+                    break;
+                case '-':
+                    result = obj.X - obj.Y;
+                    break;
+                case '*':
+                    result = obj.X * obj.Y;
+                    break;
+                case '/':
+                    result = obj.X / obj.Y;
+                    break;
+                case '%':
+                    result = obj.X % obj.Y;
+                    break;
+            }
+            console.log('Result:', result);
+        } else {
+            var newObject = this.input();
+            this.check(newObject);
+        }
+    };
+
+    this.input = function () {
+        var newX = prompt('Введіть X:');
+        var newY = prompt('Введіть Y:');
+        var newZnak = prompt('Введіть знак (+, -, /, *, %):');
+
+        return { X: parseFloat(newX), Y: parseFloat(newY), znak: newZnak };
+    };
+
+    function isValidOperation(znak) {
+        var validOperations = ['+', '-', '/', '*', '%'];
+        return validOperations.includes(znak);
+    }
+}
+
+var p = new SuperMath();
+var obj = { X: 12, Y: 3, znak: '' };
+p.check(obj);
